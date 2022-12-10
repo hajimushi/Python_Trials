@@ -1,0 +1,140 @@
+#Board
+    #A 3x3 spaced Array(board)
+#Display Board
+    #Array
+#Play Game
+    #Alternate Turns
+#Check Win
+    #Check Rows
+    #Check Columns
+    #Check Diagonals
+#Check Tie
+    #No Winner
+#Flip Player
+    #Turns
+
+
+current_player = 0
+flip_turn = 0
+end_game = False
+
+#Globals
+game_going = True
+global game_continues
+game_continues = 0
+global xpos
+xpos = 0
+global ypos
+ypos = 0
+global winner
+winner = False
+
+def gamecontinues():
+    if game_continues == 8:
+        end_game = True
+        if end_game == True:
+            print("Game Has Ended")
+
+
+board = ["-","-","-","-","-","-","-","-","-",]
+def printboard():
+    print(board[0] + " | " + board[1] + " | " + board[2])
+    print(board[3] + " | " + board[4] + " | " + board[5])
+    print(board[6] + " | " + board[7] + " | " + board[8])
+
+def playgame():
+    # Displaying your board
+    printboard()
+    global xpos
+    global ypos
+    ypos = ypos + 1
+    global game_continues
+    game_continues = game_continues + 1
+    while game_continues <= 8:
+        #ask user to input position
+        handleturn()
+        xpos = xpos + 1
+        checkgame()
+
+def checkgame():
+    checkwinx()
+    checkwiny()
+    checktie()
+def checktie():
+    if winner == False:
+        print("Its a tie, you both are losers")
+
+
+def checkwinx():
+    global winner
+    #Check Rows
+    if board[0] == "X" and board [1] == "X" and board[2] == "X":
+        winner = True
+    if board[3] == "X" and board [4] == "X" and board[5] == "X":
+        winner = True
+    if board[6] == "X" and board [7] == "X" and board[8] == "X":
+        winner = True
+    #Check Columns
+    if board[0] == "X" and board [3] == "X" and board[6] == "X":
+        winner = True
+    if board[1] == "X" and board [4] == "X" and board[7] == "X":
+        winner = True
+    if board[2] == "X" and board [5] == "X" and board[8] == "X":
+        winner = True
+    #Check Diagonals
+    if board[0] == "X" and board [4] == "X" and board[8] == "X":
+        winner = True
+    if board[2] == "X" and board [4] == "X" and board[6] == "X":
+        winner = True
+    if winner == True:
+        print("Player 1 Won")
+        quit()
+
+def checkwiny():
+    global winner
+    if board[0] == "O" and board [1] == "O" and board[2] == "O":
+        winner = True
+    if board[3] == "O" and board [4] == "O" and board[5] == "O":
+        winner = True
+    if board[6] == "O" and board [7] == "O" and board[8] == "O":
+        winner = True
+    #Check Columns
+    if board[0] == "O" and board [3] == "O" and board[6] == "O":
+        winner = True
+    if board[1] == "O" and board [4] == "O" and board[7] == "O":
+        winner = True
+    if board[2] == "O" and board [5] == "O" and board[8] == "O":
+        winner = True
+    #Check Diagonals
+    if board[0] == "O" and board [4] == "O" and board[8] == "O":
+        winner = True
+    if board[2] == "O" and board [4] == "O" and board[6] == "O":
+        winner = True
+    if winner == True:
+        print("Player 2 Won")
+        quit()
+
+
+
+    return
+def handleturn():
+    position = int(input("Chose a position from 1 - 9: "))
+    position = position - 1
+    global xpos
+    if xpos == 0 or xpos == 2 or xpos == 4 or xpos == 6 or xpos == 8:
+        board[position] = "X"
+    else:
+        board[position] = "O"
+    printboard()
+
+#Ending your game
+
+#Menu:
+play_game = int(input("Type 0 to Play 1 to Exit: "))
+if play_game == 0:
+    playgame()
+def playgame():
+    #Displaying your board
+    printboard()
+
+
