@@ -1,0 +1,62 @@
+import random
+#variable
+player = 0
+computer = 0
+flag = True
+program_start = 0
+array_game = ["rock", "paper", "scissors"]
+user_value = ""
+
+
+#global_variables
+
+global bot_value
+global bot_number
+global random
+
+def botval():
+    global bot_number
+    global bot_value
+    global random
+    bot_number = random.randint(0,2)
+    if bot_number == 0:
+        bot_value = "rock"
+    if bot_number == 1 :
+        bot_value = "paper"
+    elif bot_number == 2:
+        bot_value = "scissors"
+
+
+def winners():
+    global bot_value
+    global user_value
+    if bot_value == user_value:
+        print("Its a tie" + " ----- " + "computer: ",bot_value + " ----- " + "User: " + user_value)
+    if bot_value == "scissors" and user_value == "paper":
+        print("Computer Wins" + " ----- " + "computer: ",bot_value + " ----- " + "User: " + user_value)
+    if bot_value == "paper" and user_value == "scissors":
+        print("You Win!" + " ----- " + "computer: ",bot_value + " ----- " + "User: " + user_value)
+    if bot_value == "rock" and user_value == "paper":
+        print("You Win" + " ----- " + "computer: ",bot_value + " ----- " + "User: " + user_value)
+    if bot_value == "paper" and user_value == "rock":
+        print("Computer Wins" + " ----- " + "computer: ",bot_value + " ----- " + "User: " + user_value)
+    if bot_value == "scissors" and user_value == "rock":
+        print("You Win!" + " ----- " + "computer: ",bot_value + " ----- " + "User: " + user_value)
+    if bot_value == "rock" and user_value == "scissors":
+        print("Computer Wins" + " ----- " + "computer: ", bot_value + " ----- " + "User: " + user_value)
+
+while flag == True:
+    program_start = input("press 0 to play and 1 to exit: ").lower()
+    if program_start == "1":
+        print("nikl bhopari")
+        quit()
+    if program_start != "0":
+        continue
+
+    if program_start == "0":
+        user_value = input("rock, paper or scissors? : ").lower()
+
+    if user_value not in array_game:
+        print("daddy chill with that vocabulary you only have 3 options you n-word ")
+    botval()
+    winners()
