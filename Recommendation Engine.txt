@@ -1,0 +1,5 @@
+I started by loading the user preferences data into a Pandas DataFrame and converting the categorical variables (Website, Product, Category) into dummy variables. Then, we calculate the similarity between the items, which gives us a measure of how similar each item is to every other item.
+
+Next, I defined a function "recommend_items" that takes a user ID, the Item Similarity, and the DataFrame as parameters, and returns a list of the top 5 recommended websites or products for the user. The function calculates the average similarity for the items that the user likes, sorts the items by similarity, and returns the top 5.
+
+Finally, I used the example usage section to demonstrate how to call the function "recommend_items" for a particular user ID and display the recommended items.
